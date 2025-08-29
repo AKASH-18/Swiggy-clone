@@ -18,16 +18,14 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.9875082&lng=79.4141214&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    console.log("API response:", json);
 
     setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
-    setFilteredRestaurant(
+      
+   setFilteredRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -44,16 +42,21 @@ const Body = () => {
             type="text"
             className="serach-box"
             placeholder="search your restaurant"
-            value={ searchText }
-            onChange={(e)=> {
+            value={searchText}
+            onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button onClick={() => {
-            const filteredRestaurant = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
-          );
-          setFilteredRestaurant(filteredRestaurant)
-          }}>Search</button>
+          <button
+            onClick={() => {
+              const filteredRestaurant = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filteredRestaurant);
+            }}
+          >
+            Search
+          </button>
         </div>
         <button
           className="filter-btn"
