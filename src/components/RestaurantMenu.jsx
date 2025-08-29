@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"; // import useParams for read `resId`
+import { useParams } from "react-router-dom";
 import {
   FOODFIRE_MENU_API_URL,
   IMG_CDN_URL,
@@ -7,12 +7,17 @@ import {
   RESTAURANT_TYPE_KEY,
 } from "../Common/constants";
 import { MenuShimmer } from "./Shimmer";
-import useResMenuData from "../Hooks/useResMenuData"; // imported custom hook useResMenuData which gives restaurant Menu data from swigy api
-import useOnline from "../Hooks/useOnline"; // imported custom hook useOnline which checks user is online or not
+import useResMenuData from "../Hooks/useResMenuData";
+import useOnline from "../Hooks/useOnline";
 import UserOffline from "./UserOffline";
 
 const RestaurantMenu = () => {
-  const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
+  const { resId } = useParams();
+  
+  // Debug: Log the resId to see what we're getting
+  console.log("Restaurant ID from params:", resId);
+  
+  // Don't fetch if resId is not available
   const [restaurant, menuItems] = useResMenuData(
     FOODFIRE_MENU_API_URL,
     resId,
@@ -25,6 +30,16 @@ const RestaurantMenu = () => {
   // if user is not Online then return UserOffline component
   if (!isOnline) {
     return <UserOffline />;
+  }
+  
+  // Check if resId exists
+  if (!resId) {
+    return (
+      <div className="error-container" style={{ textAlign: 'center', padding: '50px' }}>
+        <h2>Restaurant ID not found</h2>
+        <p>Please make sure you're accessing a valid restaurant page.</p>
+      </div>
+    );
   }
 
   return !restaurant ? (

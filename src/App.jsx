@@ -34,7 +34,7 @@ const appRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/login", element: <Login /> },
-      { path: "/restaurant/:id", element: <RestaurantMenu /> },
+      { path: "/restaurant/:resId", element: <RestaurantMenu /> },  // Changed from :id to :resId
       { path: "/profile", element: <Profile /> },
     ],
   },
