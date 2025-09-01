@@ -5,13 +5,14 @@ import useOnline from "../Hooks/useOnline";
 import useAuth from "../Hooks/useAuth";
 import useLocalStorage from "../Hooks/useLocalStorage";
 import { useEffect } from "react";
+import{LOGO_URL} from "../Common/constants"
 
 // Title component for display logo
 const Title = () => (
   <Link to="/">
     <img
       className="logo"
-      src={foodFireLogo}
+      src={LOGO_URL}
       alt="Food Fire"
       title="Food Fire"
     />

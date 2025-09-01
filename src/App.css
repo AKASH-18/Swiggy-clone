@@ -71,7 +71,7 @@ a {
 
 .logo {
   padding: 10px 0 10px 15px;
-  width: 90px;
+  width: 120px;
 }
 
 .user-name {
@@ -84,7 +84,7 @@ a {
   display: flex;
   margin-right: 30px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .nav-items > ul > li {
@@ -201,6 +201,7 @@ a {
   align-items: center;
   justify-content: center;
   align-self: stretch;
+  margin: 0 10%;
 }
 
 .card {
@@ -213,7 +214,7 @@ a {
 }
 
 .card:hover {
-  transform: scale(0.98);
+  transform: scale(1.1);
 }
 
 .card h3 {

@@ -52,3 +52,7 @@ export const MENU_ITEM_TYPE_KEY =
 export const RESTAURANT_TYPE_KEY =
   "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
   
+
+  const CHEF_FOOD = "https://graphicsfamily.com/wp-content/uploads/edd/2021/06/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-999x999.png"
+
+  export const LOGO_URL = "https://graphicsfamily.com/wp-content/uploads/edd/2021/06/Editable-Photoshop-Food-Logo-Design-PNG-Transparent-999x999.png"
